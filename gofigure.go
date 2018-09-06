@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ian-kent/gofigure/sources"
+	"github.com/companieshouse/gofigure/sources"
 )
 
 // Debug controls log output

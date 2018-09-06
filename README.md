@@ -1,4 +1,4 @@
-gofigure  [![GoDoc](https://godoc.org/github.com/ian-kent/gofigure?status.svg)](https://godoc.org/github.com/ian-kent/gofigure) [![Build Status](https://travis-ci.org/ian-kent/gofigure.svg?branch=master)](https://travis-ci.org/ian-kent/gofigure) [![Coverage Status](https://coveralls.io/repos/ian-kent/gofigure/badge.png?branch=master)](https://coveralls.io/r/ian-kent/gofigure?branch=master)
+gofigure  [![GoDoc](https://godoc.org/github.com/companieshouse/gofigure?status.svg)](https://godoc.org/github.com/companieshouse/gofigure) [![Build Status](https://travis-ci.org/companieshouse/gofigure.svg?branch=master)](https://travis-ci.org/companieshouse/gofigure) [![Coverage Status](https://coveralls.io/repos/companieshouse/gofigure/badge.png?branch=master)](https://coveralls.io/r/companieshouse/gofigure?branch=master)
 ========
 
 Go configuration made easy!
@@ -11,12 +11,12 @@ Requires Go 1.2+ because of differences in Go's flag package.
 
 ### Example
 
-`go get github.com/ian-kent/gofigure`
+`go get github.com/companieshouse/gofigure`
 
 ```go
 package main
 
-import "github.com/ian-kent/gofigure"
+import "github.com/companieshouse/gofigure"
 
 type config struct {
   gofigure interface{} `envPrefix:"BAR" order:"flag,env"`

@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ian-kent/envconf"
+	"github.com/companieshouse/envconf"
 )
 
 // Environment implements environment variable configuration using envconf
