@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"os"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -17,9 +18,16 @@ import (
 
 // Debug controls log output
 var Debug = false
-var _ = func() {
-	sources.Debug = Debug
+
+func init() {
+	env := os.Getenv("GOFIGURE_DEBUG")
+	if len(env) > 0 {
+		Debug, _ = strconv.ParseBool(env)
+	}
+
 	sources.Logger = printf
+	sources.Debug = Debug
+	return
 }
 
 func printf(message string, args ...interface{}) {
@@ -242,32 +250,32 @@ func (gfg *gofiguration) initSources() error {
 
 func (gfg *gofiguration) registerFields() error {
 	for _, gfi := range gfg.fields {
-		for _, o := range gfg.order {
-			kn := gfi.field
-			if k, ok := gfi.keys[o]; ok {
-				kn = k
-			}
+		kn := gfi.field
 
-			gfg.printf("Registering '%s' for source '%s' with key '%s'", gfi.field, o, kn)
-			var err error
-			switch gfi.goField.Type.Kind() {
-			case reflect.Struct:
-				gfg.printf("Registering as struct type")
-				// TODO do shit
-				sGfg, err := parseStruct(gfi.goValue)
-				if err != nil {
-					return err
-				}
-				sGfg.apply(gfg)
-				gfi.inner = sGfg
-			default:
-				gfg.printf("Registering as default type")
-				err = Sources[o].Register(kn, "", gfi.keys, gfi.goField.Type)
-			}
-
+		var err error
+		switch gfi.goField.Type.Kind() {
+		case reflect.Struct:
+			gfg.printf("Registering as struct type")
+			// TODO do shit
+			sGfg, err := parseStruct(gfi.goValue)
 			if err != nil {
 				return err
 			}
+			sGfg.apply(gfg)
+			gfi.inner = sGfg
+		default:
+			gfg.printf("Registering as default type")
+			for _, o := range gfg.order {
+				if k, ok := gfi.keys[o]; ok {
+					kn = k
+				}
+				gfg.printf("Registering '%s' for source '%s' with key '%s'", gfi.field, o, kn)
+				err = Sources[o].Register(kn, "", gfi.keys, gfi.goField.Type)
+			}
+		}
+
+		if err != nil {
+			return err
 		}
 	}
 	return nil
@@ -539,6 +547,10 @@ func (gfi *gofiguritem) populateStructType(order []string) error {
 }
 
 func (gfg *gofiguration) populateStruct() error {
+	if gfg == nil {
+		return nil
+	}
+
 	for _, gfi := range gfg.fields {
 		printf("Populating field %s", gfi.field)
 		switch gfi.goField.Type.Kind() {
