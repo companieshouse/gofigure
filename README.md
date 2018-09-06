@@ -1,4 +1,6 @@
-gofigure  [![GoDoc](https://godoc.org/github.com/companieshouse/gofigure?status.svg)](https://godoc.org/github.com/companieshouse/gofigure) [![Build Status](https://travis-ci.org/companieshouse/gofigure.svg?branch=master)](https://travis-ci.org/companieshouse/gofigure) [![Coverage Status](https://coveralls.io/repos/companieshouse/gofigure/badge.png?branch=master)](https://coveralls.io/r/companieshouse/gofigure?branch=master)
+gofigure
+[![GoDoc](https://godoc.org/github.com/companieshouse/gofigure?status.svg)](https://godoc.org/github.com/companieshouse/gofigure)
+[![Go Report Card](https://goreportcard.com/badge/github.com/companieshouse/gofigure)](https://goreportcard.com/report/github.com/companieshouse/gofigure)
 ========
 
 Go configuration made easy!
