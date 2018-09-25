@@ -1,4 +1,6 @@
-gofigure  [![GoDoc](https://godoc.org/github.com/ian-kent/gofigure?status.svg)](https://godoc.org/github.com/ian-kent/gofigure) [![Build Status](https://travis-ci.org/ian-kent/gofigure.svg?branch=master)](https://travis-ci.org/ian-kent/gofigure) [![Coverage Status](https://coveralls.io/repos/ian-kent/gofigure/badge.png?branch=master)](https://coveralls.io/r/ian-kent/gofigure?branch=master)
+gofigure
+[![GoDoc](https://godoc.org/github.com/companieshouse/gofigure?status.svg)](https://godoc.org/github.com/companieshouse/gofigure)
+[![Go Report Card](https://goreportcard.com/badge/github.com/companieshouse/gofigure)](https://goreportcard.com/report/github.com/companieshouse/gofigure)
 ========
 
 Go configuration made easy!
@@ -11,12 +13,12 @@ Requires Go 1.2+ because of differences in Go's flag package.
 
 ### Example
 
-`go get github.com/ian-kent/gofigure`
+`go get github.com/companieshouse/gofigure`
 
 ```go
 package main
 
-import "github.com/ian-kent/gofigure"
+import "github.com/companieshouse/gofigure"
 
 type config struct {
   gofigure interface{} `envPrefix:"BAR" order:"flag,env"`
@@ -54,6 +56,24 @@ and `case`, and passed to the source matching `camel`.
 For example, the `envPrefix` field is split into `env` and `prefix`,
 and the tag value is passed to the environment variable source as
 the `prefix` parameter.
+
+### Arrays and environment variables
+
+Array support for environment variables is currently experimental.
+
+To enable it, set `GOFIGURE_ENV_ARRAY=1`.
+
+When enabled, the environment variable is split on commas, e.g.
+
+```
+struct {
+    EnvArray []string `env:"MY_ENV_VAR"`
+}
+
+MY_ENV_VAR=a,b,c
+
+EnvArray = []string{"a", "b", "c"}
+```
 
 ### Licence
 
