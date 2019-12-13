@@ -19,4 +19,4 @@ test: test-unit
 
 .PHONY: test-unit
 test-unit:
-	  go test $(TESTS) -run 'Unit'
+	  go test $(TESTS) -run 'Unit' -coverprofile=coverage.out
