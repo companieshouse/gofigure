@@ -6,7 +6,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestCamelToFlag(t *testing.T) {
+func TestUnitCamelToFlag(t *testing.T) {
 	Convey("camelToFlag converts CamelCase to flag-case", t, func() {
 		So(camelToFlag("CamelCase"), ShouldEqual, "camel-case")
 		So(camelToFlag("camelCase"), ShouldEqual, "camel-case")

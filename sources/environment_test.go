@@ -6,7 +6,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestCamelToSnake(t *testing.T) {
+func TestUnitCamelToSnake(t *testing.T) {
 	Convey("camelToSnake converts CamelCase to snake_case", t, func() {
 		So(camelToSnake("CamelCase"), ShouldEqual, "CAMEL_CASE")
 		So(camelToSnake("camelCase"), ShouldEqual, "CAMEL_CASE")
