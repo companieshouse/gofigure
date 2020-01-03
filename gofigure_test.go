@@ -143,7 +143,7 @@ type MyConfigFull struct {
 	ArrayStringField []string
 }
 
-func TestParseStruct(t *testing.T) {
+func TestUnitParseStruct(t *testing.T) {
 	Convey("parseStruct should return an error unless given a pointer to a struct", t, func() {
 		info, e := parseStruct(1)
 		So(e, ShouldNotBeNil)
@@ -229,7 +229,7 @@ func TestParseStruct(t *testing.T) {
 	clear()
 }
 
-func TestGofigure(t *testing.T) {
+func TestIntegrationGofigure(t *testing.T) {
 	Convey("Gofigure should set field values", t, func() {
 		os.Clearenv()
 		os.Args = []string{"gofigure", "-bind-addr", "abcdef"}
@@ -290,7 +290,7 @@ func TestGofigure(t *testing.T) {
 	clear()
 }
 
-func TestBoolField(t *testing.T) {
+func TestIntegrationBoolField(t *testing.T) {
 	Convey("Can set a bool field to true (flag)", t, func() {
 		os.Clearenv()
 		os.Args = []string{
@@ -363,7 +363,7 @@ func TestBoolField(t *testing.T) {
 	clear()
 }
 
-func TestIntField(t *testing.T) {
+func TestIntegrationIntField(t *testing.T) {
 	Convey("Can set int fields (flag)", t, func() {
 		os.Clearenv()
 		os.Args = []string{
@@ -471,7 +471,7 @@ func TestIntField(t *testing.T) {
 	clear()
 }
 
-func TestUintField(t *testing.T) {
+func TestIntegrationUintField(t *testing.T) {
 	Convey("Can set uint fields (flag)", t, func() {
 		os.Clearenv()
 		os.Args = []string{
@@ -536,7 +536,7 @@ func TestUintField(t *testing.T) {
 	clear()
 }
 
-func TestArrayField(t *testing.T) {
+func TestIntegrationArrayField(t *testing.T) {
 	Convey("String array should work", t, func() {
 		os.Clearenv()
 		os.Args = []string{
