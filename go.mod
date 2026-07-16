@@ -1,6 +1,6 @@
 module github.com/companieshouse/gofigure
 
-go 1.19
+go 1.26
 
 require (
 	github.com/companieshouse/envconf v0.1.5
