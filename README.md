@@ -84,6 +84,7 @@ analysed automatically, and each new commit is tagged as a patch release.
 
 ### Licence
 
-Copyright ©‎ 2014, Ian Kent (http://www.iankent.eu).
+This is the Companies House maintained fork of [gofigure](https://github.com/ian-kent/gofigure),
+originally written by Ian Kent.
 
-Released under MIT license, see [LICENSE](LICENSE.md) for details.
+Released under the MIT license, see [LICENSE](LICENSE.md) for details.
