@@ -75,8 +75,16 @@ MY_ENV_VAR=a,b,c
 EnvArray = []string{"a", "b", "c"}
 ```
 
+### CI
+
+Builds and releases run on the Companies House Shared Services Concourse. The pipeline
+is defined in the internal ci-pipelines repository at
+`pipelines/ssplatform/team-development/gofigure`. Commits to `main` are tested and
+analysed automatically, and each new commit is tagged as a patch release.
+
 ### Licence
 
-Copyright ©‎ 2014, Ian Kent (http://www.iankent.eu).
+This is the Companies House maintained fork of [gofigure](https://github.com/ian-kent/gofigure),
+originally written by Ian Kent.
 
-Released under MIT license, see [LICENSE](LICENSE.md) for details.
+Released under the MIT license, see [LICENSE](LICENSE.md) for details.
